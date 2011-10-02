@@ -4,10 +4,12 @@ pile = require "pile"
 
 app = express.createServer()
 
-js = pile.createJSManager
+opts =
+  urlRoot: "/node-pile/"
   outputDirectory: __dirname + "/pile/min"
-css = pile.createCSSManager
-  outputDirectory: __dirname + "/pile/min"
+
+js = pile.createJSManager opts
+css = pile.createCSSManager opts
 
 app.configure ->
   js.bind app
