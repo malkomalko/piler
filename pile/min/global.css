@@ -1,4 +1,9 @@
 /* file: style_styl_9dd561bc4b */
-h1 {
-  color: #f00;
+body h1 {
+  text-align: center;
+}
+.readme {
+  margin-left: auto;
+  margin-right: auto;
+  width: 650px;
 }
