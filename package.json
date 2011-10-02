@@ -1,0 +1,26 @@
+{
+    "name": "pile-homepage",
+    "version": "0.0.0",
+    "author": "Esa-Matti Suuronen",
+    "homepage": "http://epeli.github.com/node-pile",
+    "description": "Awesome asset manager for Node.js and Express",
+    "bugs": {
+        "web": "https://github.com/epeli/node-pile/issues/"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/epeli/node-pile.git"
+    },
+    "dependencies": {
+        "coffee-script": "",
+        "jade": "",
+        "stylus": "",
+        "nib": "",
+        "pile": "",
+        "express": "",
+        "async": "",
+        "request": "",
+        "underscore": "",
+        "underscore.string": ""
+    }
+}
