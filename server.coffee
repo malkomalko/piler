@@ -5,7 +5,7 @@ pile = require "pile"
 app = express.createServer()
 
 opts =
-  urlRoot: "/node-pile/"
+  urlRoot: "/node-pile/pile/"
   outputDirectory: __dirname + "/pile/min"
 
 js = pile.createJSManager opts
