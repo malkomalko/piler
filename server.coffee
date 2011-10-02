@@ -15,10 +15,10 @@ app.configure ->
   js.bind app
   css.bind app
 
-  css.addFile __dirname + "/style.styl"
+  css.addFile "my", __dirname + "/style.styl"
 
 
-js.addExec ->
+js.addExec "my", ->
   alert "Hello github pages!"
 
 savePage = ->
