@@ -21,7 +21,7 @@ repo = new GithubRepo "epeli", "node-pile"
 app = express.createServer()
 
 opts =
-  urlRoot: "/#{ repo.user }/#{ repo.name }/"
+  urlRoot: "/#{ repo.name }/pile/"
   outputDirectory: __dirname + "/pile/min"
 
 js = pile.createJSManager opts
