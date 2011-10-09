@@ -36,7 +36,7 @@ js.addFile __dirname + "/client/vendor/highlight/highlight.pack.js"
 js.addFile __dirname + '/client/addanchor.jquery.coffee'
 js.addFile "main", __dirname + '/client/main.coffee'
 
-css.addFile __dirname + "/client/vendor/highlight/styles/solarized_dark.css"
+css.addFile __dirname + "/client/vendor/highlight/styles/default.css"
 css.addFile __dirname + "/stylesheets/style.styl"
 
 
