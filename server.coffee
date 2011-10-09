@@ -5,6 +5,7 @@ markdown = require "markdown-js"
 jsdom = require("jsdom")
 request = require "request"
 _  = require 'underscore'
+_.mixin require 'underscore.string'
 
 
 cs = require "coffee-script"
@@ -27,14 +28,20 @@ opts =
 js = pile.createJSManager opts
 css = pile.createCSSManager opts
 
-
-
 app.configure ->
   js.bind app
   css.bind app
 
-  css.addFile __dirname + "/style.styl"
 
+js.addFile __dirname + "/client/vendor/jquery.js"
+js.addFile __dirname + "/client/vendor/highlight/highlight.pack.js"
+
+css.addFile __dirname + "/client/vendor/highlight/styles/solarized_dark.css"
+css.addFile __dirname + "/stylesheets/style.styl"
+
+
+js.addExec -> $ ->
+  hljs.initHighlightingOnLoad()
 
 savePage = (html, cb) -> cb null
 
@@ -69,9 +76,20 @@ postProcess = ($) ->
   $(".version").text "docs for #{ repo.point }"
 
 
+codeRegexp = /```([a-zA-Z]*)([\s\S]*?)```/i
+
 app.get "/", (req, res) ->
   repo.getFile "README.md", (err, contents) ->
     throw err if err
+
+    loop
+      match = contents.match codeRegexp
+      if not match then break
+      [__, type, code] = match
+      if type is "html"
+        code = _.escapeHTML code
+      contents = contents.replace codeRegexp, "<pre><code> #{ code } </code></pre>"
+
     res.render "index.jade",
       layout: false
       readme: markdown.makeHtml contents

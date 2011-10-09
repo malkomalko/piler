@@ -1,4 +1,3 @@
-/* file: solarized_dark_css_b6a1f6988b */
 /*
 
 Orginal Style from ethanschoonover.com/solarized (c) Jeremy Hull <sourdrums@gmail.com>
@@ -94,32 +93,4 @@ pre .deletion {
 
 pre .tex .formula {
   background: #073642;
-}
-
-
-/* file: style_styl_bf29cc595e */
-body h1 {
-  text-align: center;
-}
-.readme {
-  margin-left: auto;
-  margin-right: auto;
-  width: 650px;
-}
-a {
-  color: #808080;
-}
-a.anchor {
-  visibility: hidden;
-  text-decoration: none;
-}
-h1:hover a.anchor,
-h2:hover a.anchor,
-h3:hover a.anchor {
-  visibility: visible;
-}
-code {
-  padding-left: 2em !important;
-  padding-right: 2em !important;
-  overflow: auto;
 }
