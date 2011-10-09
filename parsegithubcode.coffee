@@ -5,7 +5,7 @@ _.mixin require 'underscore.string'
 codeRegexp = /```([a-zA-Z]*)\ *([\s\S]*?)```/i
 
 renderBlock = (type, code) ->
-  "<pre class=\"lang-#{ type }\"><code>\n#{ code }\n</code></pre>"
+  "<pre class=\"lang-#{ type }\"><code>#{ code.trim() }</code></pre>"
 
 
 ###
