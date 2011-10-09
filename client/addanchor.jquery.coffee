@@ -17,5 +17,6 @@ $.fn.addAnchor = ->
     usedIds[finalId] = true
     that.append "<a class='anchor' href='##{ finalId }'>#</a>"
     that.before "<span class='anchor' id='#{ finalId }'> #{ finalId }  </span>"
+    that.attr("data-link", finalId)
 
 

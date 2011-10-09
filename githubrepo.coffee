@@ -4,6 +4,7 @@ semver = require "semver"
 _  = require 'underscore'
 
 
+
 module.exports = class GithubRepo
 
   constructor: (@user, @name, @point) ->

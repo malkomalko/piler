@@ -1,23 +1,94 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="/node-pile/pile/min/global.css?v=8debe17607d36dbbb958d3815f3aa90289a06ce2">
-    <script type="text/javascript" src="/node-pile/pile/min/global.js?v=e431f0ce0f3f0df75f2ac670892a93ef64d321c6"></script>
+    <link href="http://fonts.googleapis.com/css?family=Aldrich" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/node-pile/pile/min/global.css?v=a09ec00364b438b7d6bc6700e250db4df1128b7b">
+    <script type="text/javascript" src="/node-pile/pile/min/global.js?v=b5912977d5936456c4c535911dc9cbd8d25fa475"></script>
+    <script type="text/javascript" src="/node-pile/pile/min/main.js?v=2f56cf398347d525ed75775e537da345b8c815de"></script>
 </head>
   <body>
+    <a href="http://github.com/epeli/node-pile">
+      <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://a248.e.akamai.net/assets.github.com/img/7afbc8b248c68eb468279e8c17986ad46549fb71/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub">
+    </a>
+    <div class="toc">
+      <div class="header">Table of contents</div>
+      <div class="toc-item d2">
+        <a href="#namespaces">Namespaces</a>
+      </div>
+      <div class="toc-item d2">
+        <a href="#sharing-code-with-the-server">Sharing code with the server</a>
+      </div>
+      <div class="toc-item d3">
+        <a href="#pattern-for-sharing-full-modules">Pattern for sharing full modules</a>
+      </div>
+      <div class="toc-item d2">
+        <a href="#awesome-development-mode">Awesome development mode!</a>
+      </div>
+      <div class="toc-item d3">
+        <a href="#script-tag-rendering">Script-tag rendering</a>
+      </div>
+      <div class="toc-item d3">
+        <a href="#live-css-editing">Live CSS editing</a>
+      </div>
+      <div class="toc-item d2">
+        <a href="#examples">Examples</a>
+      </div>
+      <div class="toc-item d2">
+        <a href="#api-summary">API summary</a>
+      </div>
+      <div class="toc-item d3">
+        <a href="#javascript-pile">JavaScript pile</a>
+      </div>
+      <div class="toc-item d4">
+        <a href="#addfile-namespace-path-to-a-asset-file">addFile</a>
+      </div>
+      <div class="toc-item d4">
+        <a href="#addurl-namespace-url-to-a-asset-file">addUrl</a>
+      </div>
+      <div class="toc-item d4">
+        <a href="#addob-namespace-any-javascript-object-">addOb</a>
+      </div>
+      <div class="toc-item d4">
+        <a href="#addexec-namespace-javascript-function-">addExec</a>
+      </div>
+      <div class="toc-item d4">
+        <a href="#addraw-namespace-raw-javascript-string-">addRaw</a>
+      </div>
+      <div class="toc-item d3">
+        <a href="#css-pile">CSS pile</a>
+      </div>
+      <div class="toc-item d4">
+        <a href="#addfile-namespace-path-to-a-asset-file-1">addFile</a>
+      </div>
+      <div class="toc-item d4">
+        <a href="#addurl-namespace-url-to-a-asset-file-1">addUrl</a>
+      </div>
+      <div class="toc-item d4">
+        <a href="#addraw-namespace-raw-css-string-">addRaw</a>
+      </div>
+      <div class="toc-item d3">
+        <a href="#response-object">Response object</a>
+      </div>
+      <div class="toc-item d4">
+        <a href="#resexec-javascript-function-">res.exec</a>
+      </div>
+      <div class="toc-item d4">
+        <a href="#resshare-any-javascript-object-">res.share</a>
+      </div>
+      <div class="toc-item d2">
+        <a href="#supported-preprocessors">Supported preprocessors</a>
+      </div>
+      <div class="toc-item d2">
+        <a href="#installing">Installing</a>
+      </div>
+      <div class="toc-item d2">
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
     <div id="container">
-      <ul>
-        <li>
-          <a href="#">eka</a>
-        </li>
-        <li>
-          <a href="#">toka</a>
-        </li>
-      </ul>
       <div class="readme">
-        <h1>
-          <span class="anchor" id="awesome-asset-manager-for-nodejs-and-express-node-pile"> -  </span>
-Awesome asset manager for Node.js and Express: node-pile          <a class="anchor" href="#awesome-asset-manager-for-nodejs-and-express-node-pile">¶</a>
+        <span class="anchor" id="awesome-asset-manager-for-nodejs-and-express-node-pile"> awesome-asset-manager-for-nodejs-and-express-node-pile  </span>
+        <h1 data-link="awesome-asset-manager-for-nodejs-and-express-node-pile">Awesome asset manager for Node.js and Express: node-pile          <a class="anchor" href="#awesome-asset-manager-for-nodejs-and-express-node-pile">#</a>
         </h1>
         <p>
           <em>node-pile</em>
@@ -120,9 +191,8 @@ html
     #container !{body}
 </code>
         </pre>
-        <h2>
-          <span class="anchor" id="namespaces"> -  </span>
-Namespaces          <a class="anchor" href="#namespaces">¶</a>
+        <span class="anchor" id="namespaces"> namespaces  </span>
+        <h2 data-link="namespaces">Namespaces          <a class="anchor" href="#namespaces">#</a>
         </h2>
         <p>The example above uses just a one pile. The global pile.</p>
         <p>If you for example want to add big editor files only for administration pages
@@ -147,9 +217,8 @@ can add that to your admin pages by using giving it as parameter for
 Use           <em>renderScriptTags("pile1", "pile2", ....)</em>
  to render multiple namespaces</p>
         <p>Piling works just the same with css.</p>
-        <h2>
-          <span class="anchor" id="sharing-code-with-the-server"> -  </span>
-Sharing code with the server          <a class="anchor" href="#sharing-code-with-the-server">¶</a>
+        <span class="anchor" id="sharing-code-with-the-server"> sharing-code-with-the-server  </span>
+        <h2 data-link="sharing-code-with-the-server">Sharing code with the server          <a class="anchor" href="#sharing-code-with-the-server">#</a>
         </h2>
         <p>Ok, that's pretty much what every asset manager does, but with           <em>node-pile</em>
  you
@@ -181,9 +250,8 @@ JavaScript object. It will be serialized and sent to the browser. Few caveats:</
           <li>Functions will be serialized using Function.prototype.toString. So closures
  won't transferred to the client!</li>
 </ol>
-        <h3>
-          <span class="anchor" id="pattern-for-sharing-full-modules"> -  </span>
-Pattern for sharing full modules          <a class="anchor" href="#pattern-for-sharing-full-modules">¶</a>
+        <span class="anchor" id="pattern-for-sharing-full-modules"> pattern-for-sharing-full-modules  </span>
+        <h3 data-link="pattern-for-sharing-full-modules">Pattern for sharing full modules          <a class="anchor" href="#pattern-for-sharing-full-modules">#</a>
         </h3>
         <p>This is nothing specific to           <em>node-pile</em>
 , but this is a nice pattern which can
@@ -217,17 +285,15 @@ be used to share modules between the server and the client.</p>
         </pre>
         <p>You can read more about the pattern from           <a href="http://caolanmcmahon.com/posts/writing_for_node_and_the_browser">here</a>
         </p>
-        <h2>
-          <span class="anchor" id="awesome-development-mode"> -  </span>
-Awesome development mode!          <a class="anchor" href="#awesome-development-mode">¶</a>
+        <span class="anchor" id="awesome-development-mode"> awesome-development-mode  </span>
+        <h2 data-link="awesome-development-mode">Awesome development mode!          <a class="anchor" href="#awesome-development-mode">#</a>
         </h2>
         <p>Development and production modes works as in Express. By default the
 development mode is active. To activate production mode set NODE_ENV
 environment variable to           <em>production</em>
 .</p>
-        <h3>
-          <span class="anchor" id="script-tag-rendering"> -  </span>
-Script-tag rendering          <a class="anchor" href="#script-tag-rendering">¶</a>
+        <span class="anchor" id="script-tag-rendering"> script-tag-rendering  </span>
+        <h3 data-link="script-tag-rendering">Script-tag rendering          <a class="anchor" href="#script-tag-rendering">#</a>
         </h3>
         <p>In development mode every js- and css-file will be rendered as a separate tag.</p>
         <p>For example renderScriptTags("admin") will render</p>
@@ -251,9 +317,8 @@ js.addFile("admin", __dirname + "/editor.extension.js");
 </code>
         </pre>
         <p>So debugging should be as easy as directly using script-tags.</p>
-        <h3>
-          <span class="anchor" id="live-css-editing"> -  </span>
-Live CSS editing          <a class="anchor" href="#live-css-editing">¶</a>
+        <span class="anchor" id="live-css-editing"> live-css-editing  </span>
+        <h3 data-link="live-css-editing">Live CSS editing          <a class="anchor" href="#live-css-editing">#</a>
         </h3>
         <p>Because           <em>node-pile</em>
  handles the script-tag rendering it is possible to add
@@ -275,55 +340,69 @@ parameter to liveUpdate:</p>
 js.liveUpdate(css, io);
 </code>
         </pre>
-        <h2>
-          <span class="anchor" id="examples"> -  </span>
-Examples          <a class="anchor" href="#examples">¶</a>
+        <span class="anchor" id="examples"> examples  </span>
+        <h2 data-link="examples">Examples          <a class="anchor" href="#examples">#</a>
         </h2>
         <p>https://github.com/epeli/node-pile/blob/master/examples/simple/app.js</p>
-        <h2>
-          <span class="anchor" id="api-summary"> -  </span>
-API summary          <a class="anchor" href="#api-summary">¶</a>
+        <span class="anchor" id="api-summary"> api-summary  </span>
+        <h2 data-link="api-summary">API summary          <a class="anchor" href="#api-summary">#</a>
         </h2>
         <p>Code will be rendered in the order you call these functions with the exception
 of           <em>addUrl</em>
  which will be rendered before any other.</p>
-        <h3>
-          <span class="anchor" id="javascript-pile"> -  </span>
-JavaScript pile          <a class="anchor" href="#javascript-pile">¶</a>
+        <span class="anchor" id="javascript-pile"> javascript-pile  </span>
+        <h3 data-link="javascript-pile">JavaScript pile          <a class="anchor" href="#javascript-pile">#</a>
         </h3>
-        <h4>addFile( [namespace], path to a asset file)</h4>
-        <h4>addUrl( [namespace], url to a asset file)</h4>
+        <span class="anchor" id="addfile-namespace-path-to-a-asset-file"> addfile-namespace-path-to-a-asset-file  </span>
+        <h4 data-link="addfile-namespace-path-to-a-asset-file">addFile( [namespace], path to a asset file)          <a class="anchor" href="#addfile-namespace-path-to-a-asset-file">#</a>
+        </h4>
+        <span class="anchor" id="addurl-namespace-url-to-a-asset-file"> addurl-namespace-url-to-a-asset-file  </span>
+        <h4 data-link="addurl-namespace-url-to-a-asset-file">addUrl( [namespace], url to a asset file)          <a class="anchor" href="#addurl-namespace-url-to-a-asset-file">#</a>
+        </h4>
         <p>Useful for CDNs and for dynamic assets in other libraries such as socket.io.</p>
-        <h4>addOb( [namespace], any Javascript object )</h4>
+        <span class="anchor" id="addob-namespace-any-javascript-object-"> addob-namespace-any-javascript-object-  </span>
+        <h4 data-link="addob-namespace-any-javascript-object-">addOb( [namespace], any Javascript object )          <a class="anchor" href="#addob-namespace-any-javascript-object-">#</a>
+        </h4>
         <p>Keys of the object will be added as globals. So take care when choosing those.
 Also remember that parent scope of functions will be lost.</p>
-        <h4>addExec( [namespace], Javascript function )</h4>
+        <span class="anchor" id="addexec-namespace-javascript-function-"> addexec-namespace-javascript-function-  </span>
+        <h4 data-link="addexec-namespace-javascript-function-">addExec( [namespace], Javascript function )          <a class="anchor" href="#addexec-namespace-javascript-function-">#</a>
+        </h4>
         <p>A function that will executed immediately in browser as it is parsed. Parent
 scope is also lost here.</p>
-        <h4>addRaw( [namespace], raw Javascript string )</h4>
-        <h3>
-          <span class="anchor" id="css-pile"> -  </span>
-CSS pile          <a class="anchor" href="#css-pile">¶</a>
+        <span class="anchor" id="addraw-namespace-raw-javascript-string-"> addraw-namespace-raw-javascript-string-  </span>
+        <h4 data-link="addraw-namespace-raw-javascript-string-">addRaw( [namespace], raw Javascript string )          <a class="anchor" href="#addraw-namespace-raw-javascript-string-">#</a>
+        </h4>
+        <span class="anchor" id="css-pile"> css-pile  </span>
+        <h3 data-link="css-pile">CSS pile          <a class="anchor" href="#css-pile">#</a>
         </h3>
         <p>These are similar to ones in JS pile.</p>
-        <h4>addFile( [namespace], path to a asset file)</h4>
-        <h4>addUrl( [namespace], url to a asset file)</h4>
-        <h4>addRaw( [namespace], raw CSS string )</h4>
-        <h3>
-          <span class="anchor" id="response-object"> -  </span>
-Response object          <a class="anchor" href="#response-object">¶</a>
+        <span class="anchor" id="addfile-namespace-path-to-a-asset-file-1"> addfile-namespace-path-to-a-asset-file-1  </span>
+        <h4 data-link="addfile-namespace-path-to-a-asset-file-1">addFile( [namespace], path to a asset file)          <a class="anchor" href="#addfile-namespace-path-to-a-asset-file-1">#</a>
+        </h4>
+        <span class="anchor" id="addurl-namespace-url-to-a-asset-file-1"> addurl-namespace-url-to-a-asset-file-1  </span>
+        <h4 data-link="addurl-namespace-url-to-a-asset-file-1">addUrl( [namespace], url to a asset file)          <a class="anchor" href="#addurl-namespace-url-to-a-asset-file-1">#</a>
+        </h4>
+        <span class="anchor" id="addraw-namespace-raw-css-string-"> addraw-namespace-raw-css-string-  </span>
+        <h4 data-link="addraw-namespace-raw-css-string-">addRaw( [namespace], raw CSS string )          <a class="anchor" href="#addraw-namespace-raw-css-string-">#</a>
+        </h4>
+        <span class="anchor" id="response-object"> response-object  </span>
+        <h3 data-link="response-object">Response object          <a class="anchor" href="#response-object">#</a>
         </h3>
         <p>
           <em>node-pile</em>
  also adds few extra methods to your response objects.</p>
-        <h4>res.exec( Javascript function )</h4>
+        <span class="anchor" id="resexec-javascript-function-"> resexec-javascript-function-  </span>
+        <h4 data-link="resexec-javascript-function-">res.exec( Javascript function )          <a class="anchor" href="#resexec-javascript-function-">#</a>
+        </h4>
         <p>Execute this function only on this response.</p>
-        <h4>res.share( any Javascript object )</h4>
+        <span class="anchor" id="resshare-any-javascript-object-"> resshare-any-javascript-object-  </span>
+        <h4 data-link="resshare-any-javascript-object-">res.share( any Javascript object )          <a class="anchor" href="#resshare-any-javascript-object-">#</a>
+        </h4>
         <p>Similar to js.addOb, but only for this response.</p>
         <p>THIS ONE IS NOT IMPLEMENTED YET</p>
-        <h2>
-          <span class="anchor" id="supported-preprocessors"> -  </span>
-Supported preprocessors          <a class="anchor" href="#supported-preprocessors">¶</a>
+        <span class="anchor" id="supported-preprocessors"> supported-preprocessors  </span>
+        <h2 data-link="supported-preprocessors">Supported preprocessors          <a class="anchor" href="#supported-preprocessors">#</a>
         </h2>
         <p>For JavaScript the only supported one is           <a href="http://jashkenas.github.com/coffee-script/">CoffeeScript</a>
  and the compiler is
@@ -345,9 +424,8 @@ included in           <em>node-pile</em>
           <a href="https://github.com/epeli/node-pile/blob/master/lib/compilers.coffee">easy</a>
 .</p>
         <p>Feel free to contribute!</p>
-        <h2>
-          <span class="anchor" id="installing"> -  </span>
-Installing          <a class="anchor" href="#installing">¶</a>
+        <span class="anchor" id="installing"> installing  </span>
+        <h2 data-link="installing">Installing          <a class="anchor" href="#installing">#</a>
         </h2>
         <p>From           <a href="http://npmjs.org/">npm</a>
         </p>
@@ -355,9 +433,8 @@ Installing          <a class="anchor" href="#installing">¶</a>
           <code>npm install pile
 </code>
         </pre>
-        <h2>
-          <span class="anchor" id="contact"> -  </span>
-Contact          <a class="anchor" href="#contact">¶</a>
+        <span class="anchor" id="contact"> contact  </span>
+        <h2 data-link="contact">Contact          <a class="anchor" href="#contact">#</a>
         </h2>
         <p>Questions and suggestions are very welcome</p>
         <ul>          <li>

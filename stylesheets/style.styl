@@ -1,3 +1,6 @@
+html
+  font-family Lucida,Helvetica,Arial,sans-serif
+  font-size 10pt
 
 body h1
   text-align center
@@ -43,3 +46,36 @@ h1,h2,h3,h4,h5
 
   &:hover a.anchor
     visibility visible
+
+.toc .header
+  padding 0px
+  margin 0px
+  font-size 15pt
+
+@media all and (max-width: 980px)
+  .toc
+    display none
+
+
+.toc
+  width 200px
+  // z-index -1
+  margin-top 1em
+  margin-left 10px
+  font-size 8pt
+  a
+    text-decoration none
+    &:hover
+      background-color #DDD
+      color black
+
+
+.d2
+  margin-left 0em
+.d3
+  margin-left 1em
+.d4
+  margin-left 2em
+.d5
+  margin-left 3em
+

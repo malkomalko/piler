@@ -16,14 +16,8 @@ $ ->
 
 
 
-# $ ->
-#   toc = $ ".toc "
-# 
-#   toc.append parent = $ "<ul><l"
-# 
-# 
-#   $("h1,h2,h3,h4,h5").each (e) ->
-#     cb $(this).text()
+
+
 
 
 

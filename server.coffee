@@ -2,17 +2,13 @@ fs = require "fs"
 express = require "express"
 pile = require "pile"
 markdown = require "markdown-js"
-jsdom = require("jsdom")
 request = require "request"
 parseGithubCode = require "./parsegithubcode"
+asJQuery = require "./asjquery"
 
 _  = require 'underscore'
 _.mixin require 'underscore.string'
 
-
-cs = require "coffee-script"
-jquery = fs.readFileSync(__dirname + '/client/vendor/jquery.js').toString()
-jquery += cs.compile fs.readFileSync(__dirname + '/client/addanchor.jquery.coffee').toString()
 
 GithubRepo = require "./githubrepo"
 
@@ -62,22 +58,12 @@ app.configure "development", ->
   js.liveUpdate css
 
 
-asJQuery = (html, modifier, cb) ->
-  jsdom.env html: html, src: [jquery], done: (err, window) ->
-    return cb? err if err
-
-    if typeof modifier is "function"
-      modifier window.$
-    else
-      for mod in modifier
-        mod window.$
-
-    doctype = (window.document.doctype or '') + "\n"
-    cb? null, doctype + window.document.documentElement.outerHTML
 
 postProcess = ($) ->
-  $("h1,h2,h3,h4").addAnchor()
+
+  $("h1,h2,h3,h4,h5").addAnchor()
   $(".version").text "docs for #{ repo.point }"
+  $(".toc").generateToc("h2,h3,h4,h5")
 
 
 
