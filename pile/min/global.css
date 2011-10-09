@@ -7,3 +7,15 @@ body h1 {
   margin-right: auto;
   width: 650px;
 }
+a {
+  color: #808080;
+}
+a.anchor {
+  visibility: hidden;
+  text-decoration: none;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor {
+  visibility: visible;
+}

@@ -14,6 +14,7 @@
     "dependencies": {
         "coffee-script": "",
         "jade": "",
+        "semver": "",
         "jQuery": "",
         "jsdom": "",
         "htmlparser": "",
