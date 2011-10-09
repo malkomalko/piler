@@ -3,7 +3,6 @@ express = require "express"
 pile = require "pile"
 markdown = require "markdown-js"
 jsdom = require("jsdom")
-createjQuery = require('jQuery').create
 request = require "request"
 _  = require 'underscore'
 
