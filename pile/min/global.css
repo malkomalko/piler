@@ -113,13 +113,42 @@ a.anchor {
   visibility: hidden;
   text-decoration: none;
 }
-h1:hover a.anchor,
-h2:hover a.anchor,
-h3:hover a.anchor {
-  visibility: visible;
+span.anchor {
+  visibility: hidden;
+  position: relative;
+  display: block;
 }
 code {
   padding-left: 2em !important;
   padding-right: 2em !important;
   overflow: auto;
+}
+.toc {
+  position: fixed;
+}
+.toc ul {
+  list-style: none;
+  padding-left: 1em;
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  padding: 0.5em;
+  border-radius: 10px;
+}
+h1.selected,
+h2.selected,
+h3.selected,
+h4.selected,
+h5.selected {
+  background-color: #ddd;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor {
+  visibility: visible;
 }

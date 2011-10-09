@@ -4,6 +4,8 @@ pile = require "pile"
 markdown = require "markdown-js"
 jsdom = require("jsdom")
 request = require "request"
+parseGithubCode = require "./parsegithubcode"
+
 _  = require 'underscore'
 _.mixin require 'underscore.string'
 
@@ -35,6 +37,8 @@ app.configure ->
 
 js.addFile __dirname + "/client/vendor/jquery.js"
 js.addFile __dirname + "/client/vendor/highlight/highlight.pack.js"
+js.addFile __dirname + '/client/addanchor.jquery.coffee'
+js.addFile "main", __dirname + '/client/main.coffee'
 
 css.addFile __dirname + "/client/vendor/highlight/styles/solarized_dark.css"
 css.addFile __dirname + "/stylesheets/style.styl"
@@ -72,24 +76,15 @@ asJQuery = (html, modifier, cb) ->
     cb? null, doctype + window.document.documentElement.outerHTML
 
 postProcess = ($) ->
-  $("h1,h2,h3").addAnchor()
+  $("h1,h2,h3,h4").addAnchor()
   $(".version").text "docs for #{ repo.point }"
 
 
-codeRegexp = /```([a-zA-Z]*)([\s\S]*?)```/i
 
 app.get "/", (req, res) ->
   repo.getFile "README.md", (err, contents) ->
     throw err if err
-
-    loop
-      match = contents.match codeRegexp
-      if not match then break
-      [__, type, code] = match
-      if type is "html"
-        code = _.escapeHTML code
-      contents = contents.replace codeRegexp, "<pre><code> #{ code } </code></pre>"
-
+    contents = parseGithubCode contents
     res.render "index.jade",
       layout: false
       readme: markdown.makeHtml contents
@@ -106,7 +101,9 @@ app.get "/", (req, res) ->
 
 console.log "Loading the latest tag"
 repo.useLatestTag (err, tag) ->
-  # repo.point = "master"
+  if custom = process.argv[3]
+    repo.point = custom
+
   throw err if err
   console.log "The tag is #{ tag }. Listening on http://127.0.0.1:#{ port }"
   app.listen 8080

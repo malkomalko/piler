@@ -7,6 +7,9 @@
     "bugs": {
         "web": "https://github.com/epeli/node-pile/issues/"
     },
+    "scripts": {
+        "start": "NODE_ENV=production coffee server.coffee"
+    },
     "repository": {
         "type": "git",
         "url": "git://github.com/epeli/node-pile.git"

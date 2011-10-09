@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" href="/node-pile/pile/min/global.css?v=8f53c142293ace32bef1564d44a55156ddb4fe38">
+    <link rel="stylesheet" href="/node-pile/pile/min/global.css?v=8debe17607d36dbbb958d3815f3aa90289a06ce2">
     <script type="text/javascript" src="/node-pile/pile/min/global.js?v=e431f0ce0f3f0df75f2ac670892a93ef64d321c6"></script>
 </head>
   <body>
@@ -15,7 +15,9 @@
         </li>
       </ul>
       <div class="readme">
-        <h1 id="awesome-asset-manager-for-nodejs-and-express-node-pile">Awesome asset manager for Node.js and Express: node-pile          <a class="anchor" href="#awesome-asset-manager-for-nodejs-and-express-node-pile">¶</a>
+        <h1>
+          <span class="anchor" id="awesome-asset-manager-for-nodejs-and-express-node-pile"> -  </span>
+Awesome asset manager for Node.js and Express: node-pile          <a class="anchor" href="#awesome-asset-manager-for-nodejs-and-express-node-pile">¶</a>
         </h1>
         <p>
           <em>node-pile</em>
@@ -118,7 +120,9 @@ html
     #container !{body}
 </code>
         </pre>
-        <h2 id="namespaces">Namespaces          <a class="anchor" href="#namespaces">¶</a>
+        <h2>
+          <span class="anchor" id="namespaces"> -  </span>
+Namespaces          <a class="anchor" href="#namespaces">¶</a>
         </h2>
         <p>The example above uses just a one pile. The global pile.</p>
         <p>If you for example want to add big editor files only for administration pages
@@ -143,7 +147,9 @@ can add that to your admin pages by using giving it as parameter for
 Use           <em>renderScriptTags("pile1", "pile2", ....)</em>
  to render multiple namespaces</p>
         <p>Piling works just the same with css.</p>
-        <h2 id="sharing-code-with-the-server">Sharing code with the server          <a class="anchor" href="#sharing-code-with-the-server">¶</a>
+        <h2>
+          <span class="anchor" id="sharing-code-with-the-server"> -  </span>
+Sharing code with the server          <a class="anchor" href="#sharing-code-with-the-server">¶</a>
         </h2>
         <p>Ok, that's pretty much what every asset manager does, but with           <em>node-pile</em>
  you
@@ -175,7 +181,9 @@ JavaScript object. It will be serialized and sent to the browser. Few caveats:</
           <li>Functions will be serialized using Function.prototype.toString. So closures
  won't transferred to the client!</li>
 </ol>
-        <h3 id="pattern-for-sharing-full-modules">Pattern for sharing full modules          <a class="anchor" href="#pattern-for-sharing-full-modules">¶</a>
+        <h3>
+          <span class="anchor" id="pattern-for-sharing-full-modules"> -  </span>
+Pattern for sharing full modules          <a class="anchor" href="#pattern-for-sharing-full-modules">¶</a>
         </h3>
         <p>This is nothing specific to           <em>node-pile</em>
 , but this is a nice pattern which can
@@ -209,13 +217,17 @@ be used to share modules between the server and the client.</p>
         </pre>
         <p>You can read more about the pattern from           <a href="http://caolanmcmahon.com/posts/writing_for_node_and_the_browser">here</a>
         </p>
-        <h2 id="awesome-development-mode">Awesome development mode!          <a class="anchor" href="#awesome-development-mode">¶</a>
+        <h2>
+          <span class="anchor" id="awesome-development-mode"> -  </span>
+Awesome development mode!          <a class="anchor" href="#awesome-development-mode">¶</a>
         </h2>
         <p>Development and production modes works as in Express. By default the
 development mode is active. To activate production mode set NODE_ENV
 environment variable to           <em>production</em>
 .</p>
-        <h3 id="script-tag-rendering">Script-tag rendering          <a class="anchor" href="#script-tag-rendering">¶</a>
+        <h3>
+          <span class="anchor" id="script-tag-rendering"> -  </span>
+Script-tag rendering          <a class="anchor" href="#script-tag-rendering">¶</a>
         </h3>
         <p>In development mode every js- and css-file will be rendered as a separate tag.</p>
         <p>For example renderScriptTags("admin") will render</p>
@@ -239,7 +251,9 @@ js.addFile("admin", __dirname + "/editor.extension.js");
 </code>
         </pre>
         <p>So debugging should be as easy as directly using script-tags.</p>
-        <h3 id="live-css-editing">Live CSS editing          <a class="anchor" href="#live-css-editing">¶</a>
+        <h3>
+          <span class="anchor" id="live-css-editing"> -  </span>
+Live CSS editing          <a class="anchor" href="#live-css-editing">¶</a>
         </h3>
         <p>Because           <em>node-pile</em>
  handles the script-tag rendering it is possible to add
@@ -261,15 +275,21 @@ parameter to liveUpdate:</p>
 js.liveUpdate(css, io);
 </code>
         </pre>
-        <h2 id="examples">Examples          <a class="anchor" href="#examples">¶</a>
+        <h2>
+          <span class="anchor" id="examples"> -  </span>
+Examples          <a class="anchor" href="#examples">¶</a>
         </h2>
         <p>https://github.com/epeli/node-pile/blob/master/examples/simple/app.js</p>
-        <h2 id="api-summary">API summary          <a class="anchor" href="#api-summary">¶</a>
+        <h2>
+          <span class="anchor" id="api-summary"> -  </span>
+API summary          <a class="anchor" href="#api-summary">¶</a>
         </h2>
         <p>Code will be rendered in the order you call these functions with the exception
 of           <em>addUrl</em>
  which will be rendered before any other.</p>
-        <h3 id="javascript-pile">JavaScript pile          <a class="anchor" href="#javascript-pile">¶</a>
+        <h3>
+          <span class="anchor" id="javascript-pile"> -  </span>
+JavaScript pile          <a class="anchor" href="#javascript-pile">¶</a>
         </h3>
         <h4>addFile( [namespace], path to a asset file)</h4>
         <h4>addUrl( [namespace], url to a asset file)</h4>
@@ -281,13 +301,17 @@ Also remember that parent scope of functions will be lost.</p>
         <p>A function that will executed immediately in browser as it is parsed. Parent
 scope is also lost here.</p>
         <h4>addRaw( [namespace], raw Javascript string )</h4>
-        <h3 id="css-pile">CSS pile          <a class="anchor" href="#css-pile">¶</a>
+        <h3>
+          <span class="anchor" id="css-pile"> -  </span>
+CSS pile          <a class="anchor" href="#css-pile">¶</a>
         </h3>
         <p>These are similar to ones in JS pile.</p>
         <h4>addFile( [namespace], path to a asset file)</h4>
         <h4>addUrl( [namespace], url to a asset file)</h4>
         <h4>addRaw( [namespace], raw CSS string )</h4>
-        <h3 id="response-object">Response object          <a class="anchor" href="#response-object">¶</a>
+        <h3>
+          <span class="anchor" id="response-object"> -  </span>
+Response object          <a class="anchor" href="#response-object">¶</a>
         </h3>
         <p>
           <em>node-pile</em>
@@ -297,7 +321,9 @@ scope is also lost here.</p>
         <h4>res.share( any Javascript object )</h4>
         <p>Similar to js.addOb, but only for this response.</p>
         <p>THIS ONE IS NOT IMPLEMENTED YET</p>
-        <h2 id="supported-preprocessors">Supported preprocessors          <a class="anchor" href="#supported-preprocessors">¶</a>
+        <h2>
+          <span class="anchor" id="supported-preprocessors"> -  </span>
+Supported preprocessors          <a class="anchor" href="#supported-preprocessors">¶</a>
         </h2>
         <p>For JavaScript the only supported one is           <a href="http://jashkenas.github.com/coffee-script/">CoffeeScript</a>
  and the compiler is
@@ -319,7 +345,9 @@ included in           <em>node-pile</em>
           <a href="https://github.com/epeli/node-pile/blob/master/lib/compilers.coffee">easy</a>
 .</p>
         <p>Feel free to contribute!</p>
-        <h2 id="installing">Installing          <a class="anchor" href="#installing">¶</a>
+        <h2>
+          <span class="anchor" id="installing"> -  </span>
+Installing          <a class="anchor" href="#installing">¶</a>
         </h2>
         <p>From           <a href="http://npmjs.org/">npm</a>
         </p>
@@ -327,7 +355,9 @@ included in           <em>node-pile</em>
           <code>npm install pile
 </code>
         </pre>
-        <h2 id="contact">Contact          <a class="anchor" href="#contact">¶</a>
+        <h2>
+          <span class="anchor" id="contact"> -  </span>
+Contact          <a class="anchor" href="#contact">¶</a>
         </h2>
         <p>Questions and suggestions are very welcome</p>
         <ul>          <li>

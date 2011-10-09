@@ -14,12 +14,32 @@ a.anchor
   visibility hidden
   text-decoration none
 
-h1:hover, h2:hover, h3:hover
-  a.anchor
-    visibility visible
 
+span.anchor
+  visibility hidden
+  // color red
+  // opacity 0.5
+  position relative
+  display block
 
 code
   padding-left 2em !important
   padding-right 2em !important
   overflow auto
+
+.toc
+  position fixed
+  ul
+    list-style none
+    padding-left 1em
+
+h1,h2,h3,h4,h5
+
+  padding 0.5em
+  border-radius 10px
+
+  &.selected
+    background-color #DDD
+
+  &:hover a.anchor
+    visibility visible

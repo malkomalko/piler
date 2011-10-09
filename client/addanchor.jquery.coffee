@@ -1,19 +1,21 @@
+$ = jQuery
 
-jQuery.fn.addAnchor = ->
+$.fn.addAnchor = ->
   usedIds = {}
   @.each ->
     that = $ @
-    id = that.text()
+    id = $.trim that.text()
     id = id.replace /\ /g, "-"
     id = id.replace /[^\-a-zA-Z0-9]/g, ""
-    id = id.toLowerCase()
-    finalId = id
+    finalId = id = id.toLowerCase()
     i = 1
     while usedIds[finalId]
       finalId = "#{ id }-#{ i }"
       i += 1
 
-    that.attr "id", finalId
+    # that.attr "id", finalId
     usedIds[finalId] = true
-    that.append "<a class='anchor' href='##{ finalId }'>&para;</a>"
+    that.append "<a class='anchor' href='##{ finalId }'>#</a>"
+    that.before "<span class='anchor' id='#{ finalId }'> #{ finalId }  </span>"
+
 
