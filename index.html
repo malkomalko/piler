@@ -3,16 +3,20 @@
   <head>
     <link href="http://fonts.googleapis.com/css?family=Aldrich" rel="stylesheet" type="text/css">
     <title>Piler - Awesome Asset Manager for Node.js</title>
-    <link rel="stylesheet" href="/node-pile/pile/min/global.css?v=97343570c77a2c9ff1ac3e6b777e1778e66fa4bb">
-    <script type="text/javascript" src="/node-pile/pile/min/global.js?v=b5912977d5936456c4c535911dc9cbd8d25fa475"></script>
-    <script type="text/javascript" src="/node-pile/pile/min/main.js?v=2f56cf398347d525ed75775e537da345b8c815de"></script>
+    <link rel="stylesheet" href="/piler/pile/min/global.css?v=fbcc04f1b49e2d668ed2e35083369f854f3e53de">
+    <script type="text/javascript" src="/piler/pile/min/global.js?v=8aee4d9dfeec52fe587f1e7faa8bdfadb66bf870"></script>
+    <script type="text/javascript" src="/piler/pile/min/main.js?v=2f56cf398347d525ed75775e537da345b8c815de"></script>
+    <script type="text/javascript"></script>
 </head>
   <body>
-    <a class="github-ribbon" href="http://github.com/epeli/node-pile">
+    <a class="github-ribbon" href="http://github.com/epeli/piler">
       <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://a248.e.akamai.net/assets.github.com/img/7afbc8b248c68eb468279e8c17986ad46549fb71/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub">
     </a>
     <div class="toc">
       <div class="header">Table Of Contents</div>
+      <div class="toc-item d2">
+        <a href="#awesome-asset-manager-for-nodejs">Awesome Asset Manager for Node.js</a>
+      </div>
       <div class="toc-item d2">
         <a href="#namespaces">Namespaces</a>
       </div>
@@ -26,10 +30,10 @@
         <a href="#awesome-development-mode">Awesome development mode!</a>
       </div>
       <div class="toc-item d3">
-        <a href="#script-tag-rendering">Script-tag rendering</a>
+        <a href="#live-css-editing">Live CSS editing</a>
       </div>
       <div class="toc-item d3">
-        <a href="#live-css-editing">Live CSS editing</a>
+        <a href="#script-tag-rendering">Script-tag rendering</a>
       </div>
       <div class="toc-item d2">
         <a href="#examples">Examples</a>
@@ -38,16 +42,25 @@
         <a href="#api-summary">API summary</a>
       </div>
       <div class="toc-item d3">
+        <a href="#createjsmanager-and-createcssmanager">createJSManager and createCSSManager</a>
+      </div>
+      <div class="toc-item d4">
+        <a href="#urlroot">urlRoot</a>
+      </div>
+      <div class="toc-item d4">
+        <a href="#outputdirectory">outputDirectory</a>
+      </div>
+      <div class="toc-item d3">
         <a href="#javascript-pile">JavaScript pile</a>
       </div>
       <div class="toc-item d4">
-        <a href="#addfile-namespace-path-to-a-asset-file">addFile</a>
+        <a href="#addfile-namespace-path-to-a-asset-file-">addFile</a>
       </div>
       <div class="toc-item d4">
-        <a href="#addurl-namespace-url-to-a-asset-file">addUrl</a>
+        <a href="#addurl-namespace-url-to-a-asset-file-">addUrl</a>
       </div>
       <div class="toc-item d4">
-        <a href="#addob-namespace-any-javascript-object-">addOb</a>
+        <a href="#addob-namespace-string-any-javascript-object-">addOb</a>
       </div>
       <div class="toc-item d4">
         <a href="#addexec-namespace-javascript-function-">addExec</a>
@@ -59,10 +72,10 @@
         <a href="#css-pile">CSS pile</a>
       </div>
       <div class="toc-item d4">
-        <a href="#addfile-namespace-path-to-a-asset-file-1">addFile</a>
+        <a href="#addfile-namespace-path-to-a-asset-file--1">addFile</a>
       </div>
       <div class="toc-item d4">
-        <a href="#addurl-namespace-url-to-a-asset-file-1">addUrl</a>
+        <a href="#addurl-namespace-url-to-a-asset-file--1">addUrl</a>
       </div>
       <div class="toc-item d4">
         <a href="#addraw-namespace-raw-css-string-">addRaw</a>
@@ -71,16 +84,28 @@
         <a href="#response-object">Response object</a>
       </div>
       <div class="toc-item d4">
-        <a href="#resexec-javascript-function-">res.exec</a>
+        <a href="#resaddexec-javascript-function-">res.addExec</a>
       </div>
       <div class="toc-item d4">
-        <a href="#resshare-any-javascript-object-">res.share</a>
+        <a href="#resaddob-any-javascript-object-">res.addOb</a>
       </div>
       <div class="toc-item d2">
         <a href="#supported-preprocessors">Supported preprocessors</a>
       </div>
+      <div class="toc-item d3">
+        <a href="#javascript">JavaScript</a>
+      </div>
+      <div class="toc-item d3">
+        <a href="#css">CSS</a>
+      </div>
       <div class="toc-item d2">
         <a href="#installing">Installing</a>
+      </div>
+      <div class="toc-item d2">
+        <a href="#source-code">Source code</a>
+      </div>
+      <div class="toc-item d2">
+        <a href="#changelog">Changelog</a>
       </div>
       <div class="toc-item d2">
         <a href="#contact">Contact</a>
@@ -88,45 +113,57 @@
     </div>
     <div id="container">
       <div class="readme">
-        <span class="anchor" id="awesome-asset-manager-for-nodejs-and-express-node-pile"> awesome-asset-manager-for-nodejs-and-express-node-pile  </span>
-        <h1 data-link="awesome-asset-manager-for-nodejs-and-express-node-pile">Awesome asset manager for Node.js and Express: node-pile          <a class="anchor" href="#awesome-asset-manager-for-nodejs-and-express-node-pile">#</a>
+        <div class="version">docs for v0.3.0</div>
+        <span class="anchor" id="piler"> piler  </span>
+        <h1 data-link="piler">Piler          <a class="anchor" href="#piler">#</a>
         </h1>
+        <p>Feature hilights</p>
+        <ul>          <li>Minify and concatenate JS and CSS for fast page loads</li>
+          <li>Tag rendering</li>
+          <li>Namespaces</li>
+          <li>Transparent preprocessors</li>
+          <li>Push CSS changes to the browser using Socket.IO</li>
+          <li>Easy code sharing with server</li>
+</ul>
+        <span class="anchor" id="awesome-asset-manager-for-nodejs"> awesome-asset-manager-for-nodejs  </span>
+        <h2 data-link="awesome-asset-manager-for-nodejs">Awesome Asset Manager for Node.js          <a class="anchor" href="#awesome-asset-manager-for-nodejs">#</a>
+        </h2>
         <p>
-          <em>node-pile</em>
- allows you to manage all your JavaScript and CSS assets cleanly
+          <em>Piler</em>
+ allows you to manage all your JavaScript and CSS assets cleanly and
 directly from code. It will concatenate and minify them in production and it
-takes care of rendering the tags as every other proper asset manager.</p>
+takes care of rendering the tags. The idea is to make your pages load as
+quickly as possible.</p>
         <p>So why create a yet another asset manager? Because Node.js is special. In
 Node.js a JavaScript asset isn't just a pile of bits that are sent to the
 browser. It's code. It's code that can be also used in the server and I think
-that it's the job of asset managers to help with it. So in           <em>node-pile</em>
- you can
-take code directly from your Javascript objects, not just from JavaScript
-files. Copying things from Rails is just not enought.</p>
+that it's the job of asset managers to help with it. So in           <em>Piler</em>
+ you can take
+code directly from your Javascript objects, not just from JavaScript files.
+Copying things from Rails is just not enough. This is just a one reason why
+Piler was created.</p>
         <p>Server-side code:</p>
-        <pre>
-          <code>js.addOb({BROWSER_GLOBAL: {
+        <pre class="lang-javascript">
+          <code>clientjs.addOb({BROWSER_GLOBAL: {
     aFunction: function() {
         console.log("Hello I'm in the browser also. Here I have", window, "and other friends");
     }
-}});
-</code>
+}});</code>
         </pre>
-        <p>You can also tell           <em>node-pile</em>
+        <p>You can also tell           <em>Piler</em>
  to directly execute some function in the browser:</p>
-        <pre>
-          <code>js.addExec(function() {
+        <pre class="lang-javascript">
+          <code>clientjs.addExec(function() {
     BROWSER_GLOBAL.aFunction();
     alert("Hello" + window.navigator.appVersion);
-});
-</code>
+});</code>
         </pre>
-        <p>Currently           <em>node-pile</em>
+        <p>Currently           <em>Piler</em>
  works only with           <a href="http://expressjs.com/">Express</a>
-, but other frameworks
-are planned as well.</p>
+, but other frameworks are planned
+as well.</p>
         <p>
-          <em>node-pile</em>
+          <em>Piler</em>
  is written following principles in mind:</p>
         <ul>          <li>Creating best possible production setup for assets should be as easy as
 including script/link to a page.</li>
@@ -139,37 +176,38 @@ extension to .coffee to use CoffeeScript. That's it. No need to worry about
 compiled files.</li>
           <li>Use heavy caching. Browser caches are killed automatically using the hash
 sum of the assets.</li>
-          <li>Awesome development mode. Build-in support for live CSS reloading.</li>
+          <li>Awesome development mode. Build-in support for pushing CSS changes to
+browsr using Sockect.IO.</li>
 </ul>
         <p>Full example</p>
-        <pre>
+        <pre class="lang-javascript">
           <code>var createServer = require("express").createServer;
 var pile = require("pile");
 
 var app = createServer();
-var js = pile.createJSManager();
-var css = pile.createCSSManager();
+var clientjs = pile.createJSManager();
+var clientcss = pile.createCSSManager();
 
 
 
 app.configure(function() {
-    js.bind(app);
-    css.bind(app);
+    clientjs.bind(app);
+    clientcss.bind(app);
 
-    css.addFile(__dirname + "/style.css");
+    clientcss.addFile(__dirname + "/style.css");
 
-    js.addUrl("http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.js");
-    js.addFile(__dirname + "/client/hello.js");
+    clientjs.addUrl("http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.js");
+    clientjs.addFile(__dirname + "/client/hello.js");
 });
 
 
 app.configure("development", function() {
-    js.liveUpdate(css);
+    clientjs.liveUpdate(css);
 });
 
-js.addOb({ VERSION: "1.0.0" });
+clientjs.addOb({ VERSION: "1.0.0" });
 
-js.exec(function() {
+clientjs.exec(function() {
     alert("Hello browser" + window.navigator.appVersion);
 });
 
@@ -177,20 +215,18 @@ app.get("/", function(req, res){
     res.render("index.jade", { layout: false });
 });
 
-app.listen(8080);
-</code>
+app.listen(8080);</code>
         </pre>
         <p>index.jade:</p>
-        <pre>
+        <pre class="lang-jade">
           <code>!!! 5
 html
   head
     !{renderStyleTags()}
     !{renderScriptTags()}
   body
-    h1 Hello node-pile!
-    #container !{body}
-</code>
+    h1 Hello Piler
+    #container !{body}</code>
         </pre>
         <span class="anchor" id="namespaces"> namespaces  </span>
         <h2 data-link="namespaces">Namespaces          <a class="anchor" href="#namespaces">#</a>
@@ -198,18 +234,16 @@ html
         <p>The example above uses just a one pile. The global pile.</p>
         <p>If you for example want to add big editor files only for administration pages
 you can create a pile for it:</p>
-        <pre>
-          <code>js.addFile("admin", __dirname + "/editor.js");
-js.addFile("admin", __dirname + "/editor.extension.js");
-</code>
+        <pre class="lang-javascript">
+          <code>clientjs.addFile("admin", __dirname + "/editor.js");
+clientjs.addFile("admin", __dirname + "/editor.extension.js");</code>
         </pre>
         <p>This will add file editor.js and editor.extension.js to a admin pile. Now you
 can add that to your admin pages by using giving it as parameter for
           <em>renderScriptTags</em>
 .</p>
-        <pre>
-          <code>!{renderScriptTags("admin")}
-</code>
+        <pre class="lang-javascript">
+          <code>!{renderScriptTags("admin")}</code>
         </pre>
         <p>This will render script-tags for the global pile and the admin-pile.
           <em>renderScriptTags</em>
@@ -221,25 +255,23 @@ Use           <em>renderScriptTags("pile1", "pile2", ....)</em>
         <span class="anchor" id="sharing-code-with-the-server"> sharing-code-with-the-server  </span>
         <h2 data-link="sharing-code-with-the-server">Sharing code with the server          <a class="anchor" href="#sharing-code-with-the-server">#</a>
         </h2>
-        <p>Ok, that's pretty much what every asset manager does, but with           <em>node-pile</em>
- you
-can share code directly from your server code.</p>
+        <p>Ok, that's pretty much what every asset manager does, but with           <em>Piler</em>
+ you can
+share code directly from your server code.</p>
         <p>Let's say that you want to share a email-validating function with a server and
 the client</p>
-        <pre>
+        <pre class="lang-javascript">
           <code>function isEmail(s) {
   return !! s.match(/.\w+@\w+\.\w/);
-}
-</code>
+}</code>
         </pre>
         <p>You can share it with           <em>addOb</em>
  -method:</p>
-        <pre>
-          <code>js.addOb({MY: {
+        <pre class="lang-javascript">
+          <code>clientjs.addOb({MY: {
    isEmail: isEmail
    }
-});
-</code>
+});</code>
         </pre>
         <p>Now on the client you can find the isEmail-function from MY.isEmail.</p>
         <p>
@@ -254,35 +286,31 @@ JavaScript object. It will be serialized and sent to the browser. Few caveats:</
         <span class="anchor" id="pattern-for-sharing-full-modules"> pattern-for-sharing-full-modules  </span>
         <h3 data-link="pattern-for-sharing-full-modules">Pattern for sharing full modules          <a class="anchor" href="#pattern-for-sharing-full-modules">#</a>
         </h3>
-        <p>This is nothing specific to           <em>node-pile</em>
-, but this is a nice pattern which can
-be used to share modules between the server and the client.</p>
+        <p>This is nothing specific to           <em>Piler</em>
+, but this is a nice pattern which can be
+used to share modules between the server and the client.</p>
         <p>share.js</p>
-        <pre>
+        <pre class="lang-javascript">
           <code>(function(exports){
 
   exports.test = function(){
        return 'This is a function from shared module';
   };
 
-}(typeof exports === 'undefined' ? this.share = {} : exports));
-</code>
+}(typeof exports === 'undefined' ? this.share = {} : exports));</code>
         </pre>
         <p>In Node.js you can use it by just requiring it as any other module</p>
-        <pre>
-          <code>var share = require("./share.js");
-</code>
+        <pre class="lang-javascript">
+          <code>var share = require("./share.js");</code>
         </pre>
         <p>and you can share it the client using           <em>addFile</em>
 :</p>
-        <pre>
-          <code>js.addFile(__dirname + "./share.js");
-</code>
+        <pre class="lang-javascript">
+          <code>clientjs.addFile(__dirname + "./share.js");</code>
         </pre>
         <p>Now you can use it in both as you would expect</p>
-        <pre>
-          <code>share.test();
-</code>
+        <pre class="lang-javascript">
+          <code>share.test();</code>
         </pre>
         <p>You can read more about the pattern from           <a href="http://caolanmcmahon.com/posts/writing_for_node_and_the_browser">here</a>
         </p>
@@ -293,79 +321,121 @@ be used to share modules between the server and the client.</p>
 development mode is active. To activate production mode set NODE_ENV
 environment variable to           <em>production</em>
 .</p>
-        <span class="anchor" id="script-tag-rendering"> script-tag-rendering  </span>
-        <h3 data-link="script-tag-rendering">Script-tag rendering          <a class="anchor" href="#script-tag-rendering">#</a>
-        </h3>
-        <p>In development mode every js- and css-file will be rendered as a separate tag.</p>
-        <p>For example renderScriptTags("admin") will render</p>
-        <pre>
-          <code>js.addFile(__dirname + "/helpers.js");
-js.addFile("admin", __dirname + "/editor.js");
-js.addFile("admin", __dirname + "/editor.extension.js");
-</code>
-        </pre>
-        <p>to</p>
-        <pre>
-          <code>&lt;script type="text/javascript" src="/pile/js/dev/_global/1710d-helpers.js?v=1317298508710" &gt;&lt;/script&gt;
-&lt;script type="text/javascript" src="/pile/js/dev/admin/3718d-editor.js?v=1317298508714" &gt;&lt;/script&gt;
-&lt;script type="text/javascript" src="/pile/js/dev/admin/1411d-editor.extension.js?v=1317298508716" &gt;&lt;/script&gt;
-</code>
-        </pre>
-        <p>in development mode, but in production it will render to</p>
-        <pre>
-          <code>&lt;script type="text/javascript"  src="/pile/js/min/_global.js?v=f1d27a8d9b92447439f6ebd5ef8f7ea9d25bc41c"  &gt;&lt;/script&gt;
-&lt;script type="text/javascript"  src="/pile/js/min/admin.js?v=2d730ac54f9e63e1a7e99cd669861bda33905365"  &gt;&lt;/script&gt;
-</code>
-        </pre>
-        <p>So debugging should be as easy as directly using script-tags.</p>
         <span class="anchor" id="live-css-editing"> live-css-editing  </span>
         <h3 data-link="live-css-editing">Live CSS editing          <a class="anchor" href="#live-css-editing">#</a>
         </h3>
-        <p>Because           <em>node-pile</em>
- handles the script-tag rendering it is possible to add
-some development tools when in development mode.</p>
-        <p>Using Express you can automatically add Live CSS editing:</p>
-        <pre>
+        <p>This is really cool! You don't want to edit CSS at all without this after you
+try it!</p>
+        <p>Because           <em>Piler</em>
+ handles the script-tag rendering it can add some development
+tools when in development mode.</p>
+        <p>Using Express you can add Live CSS editing in development mode:</p>
+        <pre class="lang-javascript">
           <code>app.configure("development", function() {
-   js.liveUpdate(css);
-});
-</code>
+   clientjs.liveUpdate(clientcss);
+});</code>
         </pre>
         <p>This is similar to           <a href="http://livejs.com/">Live.js</a>
 , but it does not use polling. It will add
-socket.io add will push the CSS-updates to your browser as you edit them.</p>
-        <p>If you app already uses Socket.io you need to add the io-object as second
+Socket.IO which will push the CSS-changes to your browser as you edit them.</p>
+        <p>If your app already uses Socket.IO you need to add the           <em>io</em>
+-object as second
 parameter to liveUpdate:</p>
-        <pre>
+        <pre class="lang-javascript">
           <code>var io = require('socket.io').listen(app);
-js.liveUpdate(css, io);
-</code>
+clientjs.liveUpdate(clientcss, io);</code>
         </pre>
+        <span class="anchor" id="script-tag-rendering"> script-tag-rendering  </span>
+        <h3 data-link="script-tag-rendering">Script-tag rendering          <a class="anchor" href="#script-tag-rendering">#</a>
+        </h3>
+        <p>In development mode every JS- and CSS-file will be rendered as a separate tag.</p>
+        <p>For example renderScriptTags("admin") will render</p>
+        <pre class="lang-javascript">
+          <code>clientjs.addFile(__dirname + "/helpers.js");
+clientjs.addFile("admin", __dirname + "/editor.js");
+clientjs.addFile("admin", __dirname + "/editor.extension.js");</code>
+        </pre>
+        <p>to</p>
+        <pre class="lang-html">
+          <code>&lt;script type="text/javascript" src="/pile/dev/_global/1710d-helpers.js?v=1317298508710" &gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="/pile/dev/admin/3718d-editor.js?v=1317298508714" &gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="/pile/dev/admin/1411d-editor.extension.js?v=1317298508716" &gt;&lt;/script&gt;</code>
+        </pre>
+        <p>in development mode, but in production it will render to</p>
+        <pre class="lang-html">
+          <code>&lt;script type="text/javascript"  src="/pile/min/_global.js?v=f1d27a8d9b92447439f6ebd5ef8f7ea9d25bc41c"  &gt;&lt;/script&gt;
+&lt;script type="text/javascript"  src="/pile/min/admin.js?v=2d730ac54f9e63e1a7e99cd669861bda33905365"  &gt;&lt;/script&gt;</code>
+        </pre>
+        <p>So debugging should be as easy as directly using script-tags.  Line numbers
+will match your real files in the filesystem. No need to debug huge Javascript
+bundle!</p>
         <span class="anchor" id="examples"> examples  </span>
         <h2 data-link="examples">Examples          <a class="anchor" href="#examples">#</a>
         </h2>
-        <p>https://github.com/epeli/node-pile/blob/master/examples/simple/app.js</p>
+        <p>See
+          <a href="https://github.com/epeli/node-piler/blob/master/examples/simple/app.js">this</a>
+
+directory in the repo.</p>
         <span class="anchor" id="api-summary"> api-summary  </span>
         <h2 data-link="api-summary">API summary          <a class="anchor" href="#api-summary">#</a>
         </h2>
         <p>Code will be rendered in the order you call these functions with the exception
 of           <em>addUrl</em>
- which will be rendered before any other.</p>
+ which will be rendered as first.</p>
+        <span class="anchor" id="createjsmanager-and-createcssmanager"> createjsmanager-and-createcssmanager  </span>
+        <h3 data-link="createjsmanager-and-createcssmanager">createJSManager and createCSSManager          <a class="anchor" href="#createjsmanager-and-createcssmanager">#</a>
+        </h3>
+        <p>Can take an optional configuration object as an argument with following keys.</p>
+        <pre>
+          <code>var jsclient = piler.createJSManager({
+    outputDirectory: __dirname + "/mydir",
+    urlRoot: "/my/root"
+});
+</code>
+        </pre>
+        <span class="anchor" id="urlroot"> urlroot  </span>
+        <h4 data-link="urlroot">urlRoot          <a class="anchor" href="#urlroot">#</a>
+        </h4>
+        <p>Url root to which Piler's paths are appended. For example urlRoot "/my/root"
+will result in following script tag:</p>
+        <pre>
+          <code>&lt;script type="text/javascript" src="/my/root/min/code.js?v=f4ec8d2b2be16a4ae8743039c53a1a2c31e50570" &gt;&lt;/script&gt;
+</code>
+        </pre>
+        <span class="anchor" id="outputdirectory"> outputdirectory  </span>
+        <h4 data-link="outputdirectory">outputDirectory          <a class="anchor" href="#outputdirectory">#</a>
+        </h4>
+        <p>If specified           <em>Piler</em>
+ will write the minified assets to this folder. Useful if
+you want to share you assets from Apache etc. instead of directly serving from
+Piler's Connect middleware.</p>
         <span class="anchor" id="javascript-pile"> javascript-pile  </span>
         <h3 data-link="javascript-pile">JavaScript pile          <a class="anchor" href="#javascript-pile">#</a>
         </h3>
-        <span class="anchor" id="addfile-namespace-path-to-a-asset-file"> addfile-namespace-path-to-a-asset-file  </span>
-        <h4 data-link="addfile-namespace-path-to-a-asset-file">addFile( [namespace], path to a asset file)          <a class="anchor" href="#addfile-namespace-path-to-a-asset-file">#</a>
+        <span class="anchor" id="addfile-namespace-path-to-a-asset-file-"> addfile-namespace-path-to-a-asset-file-  </span>
+        <h4 data-link="addfile-namespace-path-to-a-asset-file-">addFile( [namespace], path to a asset file )          <a class="anchor" href="#addfile-namespace-path-to-a-asset-file-">#</a>
         </h4>
-        <span class="anchor" id="addurl-namespace-url-to-a-asset-file"> addurl-namespace-url-to-a-asset-file  </span>
-        <h4 data-link="addurl-namespace-url-to-a-asset-file">addUrl( [namespace], url to a asset file)          <a class="anchor" href="#addurl-namespace-url-to-a-asset-file">#</a>
+        <p>File on filesystem.</p>
+        <span class="anchor" id="addurl-namespace-url-to-a-asset-file-"> addurl-namespace-url-to-a-asset-file-  </span>
+        <h4 data-link="addurl-namespace-url-to-a-asset-file-">addUrl( [namespace], url to a asset file )          <a class="anchor" href="#addurl-namespace-url-to-a-asset-file-">#</a>
         </h4>
         <p>Useful for CDNs and for dynamic assets in other libraries such as socket.io.</p>
-        <span class="anchor" id="addob-namespace-any-javascript-object-"> addob-namespace-any-javascript-object-  </span>
-        <h4 data-link="addob-namespace-any-javascript-object-">addOb( [namespace], any Javascript object )          <a class="anchor" href="#addob-namespace-any-javascript-object-">#</a>
+        <span class="anchor" id="addob-namespace-string-any-javascript-object-"> addob-namespace-string-any-javascript-object-  </span>
+        <h4 data-link="addob-namespace-string-any-javascript-object-">addOb( [namespace string], any Javascript object )          <a class="anchor" href="#addob-namespace-string-any-javascript-object-">#</a>
         </h4>
-        <p>Keys of the object will be added as globals. So take care when choosing those.
-Also remember that parent scope of functions will be lost.</p>
+        <p>Keys of the object will be added to the global window object. So take care when
+choosing those.  Also remember that parent scope of functions will be lost.</p>
+        <p>You can alsow give a nested namespace for it</p>
+        <pre>
+          <code>clientjs.addOb({"foo.bar": "my thing"});
+</code>
+        </pre>
+        <p>Now on the client "my thing" string will be found from window.foo.bar.</p>
+        <p>The object will be serialized at the second it is passed to this method so you
+won't be able modify it between server restarts. This is usefull for sharing
+utility functions etc.</p>
+        <p>Use           <em>res.addOb</em>
+ to share more dynamically objects.</p>
         <span class="anchor" id="addexec-namespace-javascript-function-"> addexec-namespace-javascript-function-  </span>
         <h4 data-link="addexec-namespace-javascript-function-">addExec( [namespace], Javascript function )          <a class="anchor" href="#addexec-namespace-javascript-function-">#</a>
         </h4>
@@ -374,42 +444,56 @@ scope is also lost here.</p>
         <span class="anchor" id="addraw-namespace-raw-javascript-string-"> addraw-namespace-raw-javascript-string-  </span>
         <h4 data-link="addraw-namespace-raw-javascript-string-">addRaw( [namespace], raw Javascript string )          <a class="anchor" href="#addraw-namespace-raw-javascript-string-">#</a>
         </h4>
+        <p>Any valid Javascript string.</p>
         <span class="anchor" id="css-pile"> css-pile  </span>
         <h3 data-link="css-pile">CSS pile          <a class="anchor" href="#css-pile">#</a>
         </h3>
         <p>These are similar to ones in JS pile.</p>
-        <span class="anchor" id="addfile-namespace-path-to-a-asset-file-1"> addfile-namespace-path-to-a-asset-file-1  </span>
-        <h4 data-link="addfile-namespace-path-to-a-asset-file-1">addFile( [namespace], path to a asset file)          <a class="anchor" href="#addfile-namespace-path-to-a-asset-file-1">#</a>
+        <span class="anchor" id="addfile-namespace-path-to-a-asset-file--1"> addfile-namespace-path-to-a-asset-file--1  </span>
+        <h4 data-link="addfile-namespace-path-to-a-asset-file--1">addFile( [namespace], path to a asset file )          <a class="anchor" href="#addfile-namespace-path-to-a-asset-file--1">#</a>
         </h4>
-        <span class="anchor" id="addurl-namespace-url-to-a-asset-file-1"> addurl-namespace-url-to-a-asset-file-1  </span>
-        <h4 data-link="addurl-namespace-url-to-a-asset-file-1">addUrl( [namespace], url to a asset file)          <a class="anchor" href="#addurl-namespace-url-to-a-asset-file-1">#</a>
+        <p>CSS asset on your filesystem.</p>
+        <span class="anchor" id="addurl-namespace-url-to-a-asset-file--1"> addurl-namespace-url-to-a-asset-file--1  </span>
+        <h4 data-link="addurl-namespace-url-to-a-asset-file--1">addUrl( [namespace], url to a asset file )          <a class="anchor" href="#addurl-namespace-url-to-a-asset-file--1">#</a>
         </h4>
+        <p>CSS asset behind a url. Can be remote too. This will be directly linked to you
+page. Use addFile if you want it be minified.</p>
         <span class="anchor" id="addraw-namespace-raw-css-string-"> addraw-namespace-raw-css-string-  </span>
         <h4 data-link="addraw-namespace-raw-css-string-">addRaw( [namespace], raw CSS string )          <a class="anchor" href="#addraw-namespace-raw-css-string-">#</a>
         </h4>
+        <p>Any valid CSS string.</p>
         <span class="anchor" id="response-object"> response-object  </span>
         <h3 data-link="response-object">Response object          <a class="anchor" href="#response-object">#</a>
         </h3>
         <p>
-          <em>node-pile</em>
- also adds few extra methods to your response objects.</p>
-        <span class="anchor" id="resexec-javascript-function-"> resexec-javascript-function-  </span>
-        <h4 data-link="resexec-javascript-function-">res.exec( Javascript function )          <a class="anchor" href="#resexec-javascript-function-">#</a>
+          <em>Piler</em>
+ also adds few extra methods to your response objects. The big
+difference to           <em>clientjs.addExec</em>
+ and           <em>clientjs.addOb</em>
+ is that with these are
+that you can render different values every time.</p>
+        <span class="anchor" id="resaddexec-javascript-function-"> resaddexec-javascript-function-  </span>
+        <h4 data-link="resaddexec-javascript-function-">res.addExec( Javascript function )          <a class="anchor" href="#resaddexec-javascript-function-">#</a>
         </h4>
         <p>Execute this function only on this response.</p>
-        <span class="anchor" id="resshare-any-javascript-object-"> resshare-any-javascript-object-  </span>
-        <h4 data-link="resshare-any-javascript-object-">res.share( any Javascript object )          <a class="anchor" href="#resshare-any-javascript-object-">#</a>
+        <span class="anchor" id="resaddob-any-javascript-object-"> resaddob-any-javascript-object-  </span>
+        <h4 data-link="resaddob-any-javascript-object-">res.addOb( any Javascript object )          <a class="anchor" href="#resaddob-any-javascript-object-">#</a>
         </h4>
-        <p>Similar to js.addOb, but only for this response.</p>
-        <p>THIS ONE IS NOT IMPLEMENTED YET</p>
+        <p>Similar to clientjs.addOb, but only for this response.</p>
         <span class="anchor" id="supported-preprocessors"> supported-preprocessors  </span>
         <h2 data-link="supported-preprocessors">Supported preprocessors          <a class="anchor" href="#supported-preprocessors">#</a>
         </h2>
+        <span class="anchor" id="javascript"> javascript  </span>
+        <h3 data-link="javascript">JavaScript          <a class="anchor" href="#javascript">#</a>
+        </h3>
         <p>For JavaScript the only supported one is           <a href="http://jashkenas.github.com/coffee-script/">CoffeeScript</a>
  and the compiler is
-included in           <em>node-pile</em>
+included in           <em>Piler</em>
 .</p>
-        <p>CSS-compilers are not included in           <em>node-pile</em>
+        <span class="anchor" id="css"> css  </span>
+        <h3 data-link="css">CSS          <a class="anchor" href="#css">#</a>
+        </h3>
+        <p>CSS-compilers are not included in           <em>Piler</em>
 . Just install what you need using
           <a href="http://npmjs.org/">npm</a>
 .</p>
@@ -422,7 +506,7 @@ included in           <em>node-pile</em>
  (npm install less)</li>
 </ul>
         <p>Adding support for new compilers should be
-          <a href="https://github.com/epeli/node-pile/blob/master/lib/compilers.coffee">easy</a>
+          <a href="https://github.com/epeli/node-piler/blob/master/lib/compilers.coffee">easy</a>
 .</p>
         <p>Feel free to contribute!</p>
         <span class="anchor" id="installing"> installing  </span>
@@ -431,9 +515,28 @@ included in           <em>node-pile</em>
         <p>From           <a href="http://npmjs.org/">npm</a>
         </p>
         <pre>
-          <code>npm install pile
+          <code>npm install piler
 </code>
         </pre>
+        <span class="anchor" id="source-code"> source-code  </span>
+        <h2 data-link="source-code">Source code          <a class="anchor" href="#source-code">#</a>
+        </h2>
+        <p>Source code is licenced under           <a href="https://github.com/epeli/node-piler/blob/master/LICENSE">The MIT
+License</a>
+ it is hosted
+on           <a href="https://github.com/epeli/node-piler">Github</a>
+.</p>
+        <span class="anchor" id="changelog"> changelog  </span>
+        <h2 data-link="changelog">Changelog          <a class="anchor" href="#changelog">#</a>
+        </h2>
+        <p>v0.3.0 - 2011-10-13</p>
+        <ul>          <li>Rename to Piler</li>
+          <li>Really minify CSS</li>
+          <li>Implemented res.addOb</li>
+          <li>Implement outputDirectory and urlRoot options.</li>
+          <li>addOb can now take nested namespace string and it won't override existing
+namespaces.</li>
+</ul>
         <span class="anchor" id="contact"> contact  </span>
         <h2 data-link="contact">Contact          <a class="anchor" href="#contact">#</a>
         </h2>

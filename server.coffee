@@ -1,6 +1,6 @@
 fs = require "fs"
 express = require "express"
-pile = require "pile"
+piler = require "piler"
 markdown = require "markdown-js"
 request = require "request"
 parseGithubCode = require "./parsegithubcode"
@@ -13,7 +13,7 @@ _.mixin require 'underscore.string'
 GithubRepo = require "./githubrepo"
 
 port = 8080
-repo = new GithubRepo "epeli", "node-pile"
+repo = new GithubRepo "epeli", "piler"
 
 
 
@@ -23,8 +23,8 @@ opts =
   urlRoot: "/#{ repo.name }/pile/"
   outputDirectory: __dirname + "/pile/min"
 
-js = pile.createJSManager opts
-css = pile.createCSSManager opts
+js = piler.createJSManager opts
+css = piler.createCSSManager opts
 
 app.configure ->
   js.bind app
