@@ -113,7 +113,7 @@
     </div>
     <div id="container">
       <div class="readme">
-        <div class="version">docs for v0.3.0</div>
+        <div class="version">docs for master</div>
         <span class="anchor" id="piler"> piler  </span>
         <h1 data-link="piler">Piler          <a class="anchor" href="#piler">#</a>
         </h1>
@@ -141,7 +141,8 @@ that it's the job of asset managers to help with it. So in           <em>Piler</
  you can take
 code directly from your Javascript objects, not just from JavaScript files.
 Copying things from Rails is just not enough. This is just a one reason why
-Piler was created.</p>
+          <em>Piler</em>
+ was created.</p>
         <p>Server-side code:</p>
         <pre class="lang-javascript">
           <code>clientjs.addOb({BROWSER_GLOBAL: {
@@ -182,11 +183,11 @@ browsr using Sockect.IO.</li>
         <p>Full example</p>
         <pre class="lang-javascript">
           <code>var createServer = require("express").createServer;
-var pile = require("pile");
+var piler = require("piler");
 
 var app = createServer();
-var clientjs = pile.createJSManager();
-var clientcss = pile.createCSSManager();
+var clientjs = piler.createJSManager();
+var clientcss = piler.createCSSManager();
 
 
 
