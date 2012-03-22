@@ -455,11 +455,11 @@ exports.JSManager = JSManager
 exports.CSSManager = CSSManager
 
 exports.createJSManager = (settings={}) ->
-  settings.production = production
+  settings.production ?= production
   new JSManager settings
 
 exports.createCSSManager = (settings={}) ->
-  settings.production = production
+  settings.production ?= production
   new CSSManager settings
 
 
