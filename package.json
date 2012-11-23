@@ -19,7 +19,7 @@
         "coffee-script": ""
         , "underscore": ""
         , "underscore.string": ""
-        , "uglify-js": ""
+        , "uglify-js": "1.3.3"
         , "async": ""
         , "csso": "1.2.18"
     }
