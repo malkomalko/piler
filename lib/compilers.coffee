@@ -9,6 +9,10 @@ try
 catch e
 
 try
+  axis = require "axis-css"
+catch e
+
+try
   less = require "less"
 catch e
 
@@ -36,14 +40,13 @@ if stylus?
       .set('filename', filename)
       .render cb
 
-  if nib?
-    Renderer = require "stylus/lib/renderer"
-    compilers.styl.render = (filename, code, cb) ->
-      stylus(code)
-      .set('filename', filename)
-      .use(do nib)
-      .render cb
-
+  Renderer = require "stylus/lib/renderer"
+  compilers.styl.render = (filename, code, cb) ->
+    stylus(code)
+    .set('filename', filename)
+    .use(nib())
+    .use(axis())
+    .render cb
 
 if less?
   compilers.less =

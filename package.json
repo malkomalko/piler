@@ -31,6 +31,7 @@
         , "jade": ""
         , "stylus": ""
         , "nib": ""
+        , "axis-css": "https://github.com/malkomalko/axis/tarball/master"
         , "less": ""
         , "request": ""
         , "csslint": ""
